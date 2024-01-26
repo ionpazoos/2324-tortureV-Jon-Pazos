@@ -1,6 +1,7 @@
 import globals from "./globals.js";
 import { initLevel,initplayer,initKeyTimer } from "./initialize.js";
 import { Characters, Game } from "./constants.js";
+import {detectCollisionBetweenPlayerAndMapObstacles} from "./collisions.js"
 
 
 export default function update() {
@@ -53,18 +54,31 @@ if(globals.keyTime.value === 0){
     if (globals.action.moveDown) {
         console.log("Down");
             character.fil++;
+            if(detectCollisionBetweenPlayerAndMapObstacles()){
+                character.fil--;
+            }
+            
     }
     else if (globals.action.moveUp) {
         console.log("Up");
             character.fil--;
+            if(detectCollisionBetweenPlayerAndMapObstacles()){
+                character.fil++;
+            }
     }
     else if (globals.action.moveLeft) {
         console.log("Left");
             character.col--;
+            if(detectCollisionBetweenPlayerAndMapObstacles()){
+                character.col++;
+            }
     }
     else if (globals.action.moveRight) {
         console.log("Rigth");
             character.col++;
+            if(detectCollisionBetweenPlayerAndMapObstacles()){
+                character.col--;
+            }
     }
     globals.keyTime.value = 0.2;
 }

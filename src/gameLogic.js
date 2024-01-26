@@ -33,9 +33,17 @@ function updatePlayer(character){
         console.log("down");
             character.fil++;
     }
-    else if (globals.action.moveDown) {
+    else if (globals.action.moveUp) {
         console.log("Up");
             character.fil--;
+    }
+    else if (globals.action.moveLeft) {
+        console.log("Left");
+            character.col--;
+    }
+    else if (globals.action.moveRight) {
+        console.log("Rigth");
+            character.col++;
     }
 }
 function updateCharacter(character){

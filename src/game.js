@@ -2,7 +2,7 @@
 
 
 import globals from "./globals.js";
-import {  } from "./initialize.js";
+import { initHTMLelements } from "./initialize.js";
 import update from "./gameLogic.js"
 import render from "./gameRender.js"
 

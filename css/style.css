@@ -1,0 +1,35 @@
+@font-face {
+    font-family: emulogic;
+    src: url("../fonts/emulogic.ttf");
+}
+
+body{
+margin-left:381px;
+margin-right: 381px;
+background-color: rgb(155, 103, 41);
+border: 3px;
+border-color: orangered;
+border-style: solid;
+}
+
+#gameScreen {
+    width: 1152px;
+    height: 768px;
+    background-color: rgb(22, 9, 2);
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+
+#gameHUD {
+    width: 1152px;
+    height: 100px;
+    margin-bottom: -5px;
+    background-color: black;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}

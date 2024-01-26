@@ -48,7 +48,7 @@ function initVars() {
 function initLevel() {
 
     //Makes & Saves Level
-    globals.level = new Level(level1, Tile.SIZE_16)
+    globals.level = new Level(level1, Tile.SIZE_16,30,30)
   
 }
 
@@ -59,10 +59,46 @@ function initplayer() {
    globals.characters.push(player);
   
 }
+function initDinero(fil,col) {
+
+    //Makes & Saves Level
+   const dinero = new Character(Characters.DINERO,fil,col,CharactersRepresentation.DINERO)
+   globals.characters.push(dinero);
+  
+}
+function initAraña(fil,col) {
+
+    //Makes & Saves Level
+   const dinero = new Character(Characters.SPIDER,fil,col,CharactersRepresentation.SPIDER)
+   globals.characters.push(dinero);
+  
+}
+function initArañaEsquina(){
+    let esquina1 = [1,1];
+    let esquina2 = [15,1];
+    let esquina3 = [1,10];
+    let esquina4 = [15,10];
+
+    let esquinas = [esquina1,esquina2,esquina3,esquina4];
+    let esquinasel = [0,0];
+    esquinasel = esquinas[Math.floor(Math.random() * esquinas.length)];
+    initAraña(esquinasel[0],esquinasel[1]);
+
+}
 function initKeyTimer(){
-    globals.keyTime = new Timer(0.2, 0.2)
+    globals.keyTime = new Timer(0.2, 0.2);
+    globals.spiderTime = new Timer(0.2, 0.2)
 
 
+}
+function initDineroAleatorio(){
+    let randomFil, randomCol;
+    const level = globals.level.data;
+    do {
+        randomFil = Math.floor(Math.random() * level.length) ;
+        randomCol = Math.floor(Math.random() * level[0].length ) ;
+    } while (level[randomFil][randomCol] != ' ');
+     initDinero(randomCol,randomFil);
 }
 export function initEvents(){
 
@@ -70,4 +106,5 @@ export function initEvents(){
     window.addEventListener("keydown", keydownHandler, false);
     window.addEventListener("keyup", keyupHandler, false);
 }
-export{initHTMLelements,initVars,initLevel,initplayer,initKeyTimer}
+
+export{initHTMLelements,initVars,initLevel,initplayer,initKeyTimer,initDineroAleatorio,initArañaEsquina}

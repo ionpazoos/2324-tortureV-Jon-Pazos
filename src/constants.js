@@ -4,6 +4,7 @@ const Game = {
     INVALID:        -1,
     LOADING:         0,
     PLAYING:         1,
+    GAMEOVER:        2,
 
 }
 
@@ -18,9 +19,6 @@ const Key = {
     UP:   38,
     RIGHT:39,
     DOWN: 40,
-    JUMP: 32,
-    FIRE: 90,
-    RETURN: 88
 }
 
 
@@ -43,12 +41,14 @@ const Obstacle = {
 
 }
 const CharactersRepresentation = {
-    PLAYER:                    '\u{1F474}' ,
-    SPIDER:                    '\u{1F577}',    
+    PLAYER:                    '\u{1F474}',
+    SPIDER:                    '\u{1F577}',
+    DINERO:                    '\u{1F4B5}',    
 }
 const Characters = {
     PLAYER:                    1,
-    SPIDER:                    2,    
+    SPIDER:                    2, 
+    DINERO:                    3,   
 }
 
 

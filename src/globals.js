@@ -39,10 +39,11 @@ export default {
     action: {},
 
     //Life
-    life: 200,
+    life: 3,
 
     //key timer
     keyTime:0,
+    spiderTime:0,
 
 
     score: 0,

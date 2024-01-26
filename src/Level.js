@@ -1,7 +1,9 @@
  class Level {
-    constructor(data,blockSize){
+    constructor(data,blockSize,offsety,offsetx){
         this.data     = data
         this.blockSize = blockSize
+        this.offsety = offsety
+        this.offsetx = offsetx
     }
 }
 

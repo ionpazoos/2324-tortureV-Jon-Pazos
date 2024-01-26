@@ -27,7 +27,7 @@ border-style: solid;
     width: 1152px;
     height: 100px;
     margin-bottom: -5px;
-    background-color: rgb(78, 78, 78);
+    background-color: rgb(0, 0, 0);
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;

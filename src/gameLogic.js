@@ -1,5 +1,5 @@
 import globals from "./globals.js";
-import { initLevel,initplayer } from "./initialize.js";
+import { initLevel,initplayer,initKeyTimer } from "./initialize.js";
 import { Characters, Game } from "./constants.js";
 
 
@@ -9,11 +9,13 @@ export default function update() {
             console.log("Loading assets...");
             initLevel();
             initplayer();
+            initKeyTimer();
             globals.gameState = Game.PLAYING;
             console.log("Assets loaded!");
             break;
         case Game.PLAYING:
             updateCharacters();
+            updateKeyTime();
             break;
         }
 
@@ -25,12 +27,31 @@ function updateCharacters() {
 
     }
 }
+//Funcion que actualiza el TIME
+function updateKeyTime(){
+
+    //Incrementamos el contador de cambio de valor
+    globals.keyTime.timeChangeCounter += globals.deltaTime;
+
+    //Si ha pasado el tiempo necesario, cambiamos el valor del timer
+    if (globals.keyTime.timeChangeCounter > globals.keyTime.timeChangeValue){
+
+        globals.keyTime.value -= 0.2;
+        
+        if(globals.keyTime.value <= -1){
+            globals.keyTime.value = 0;
+        }
+        //Reseteamos timeChangeCounter
+        globals.keyTime.timeChangeCounter= 0;
+    }
+
+}
 
 function updatePlayer(character){
-    console.log(globals.action.moveDown);
-
+    
+if(globals.keyTime.value === 0){
     if (globals.action.moveDown) {
-        console.log("down");
+        console.log("Down");
             character.fil++;
     }
     else if (globals.action.moveUp) {
@@ -45,6 +66,8 @@ function updatePlayer(character){
         console.log("Rigth");
             character.col++;
     }
+    globals.keyTime.value = 0.2;
+}
 }
 function updateCharacter(character){
    const type = character.id;

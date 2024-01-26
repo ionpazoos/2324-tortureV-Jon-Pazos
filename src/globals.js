@@ -41,6 +41,9 @@ export default {
     //Life
     life: 200,
 
+    //key timer
+    keyTime:0,
+
 
     score: 0,
     highScore: 1000,

@@ -3,6 +3,7 @@ import {Game, FPS,Tile,Characters,CharactersRepresentation} from "./constants.js
 import {Level,level1} from "./Level.js"
 import Character from "./characters.js"
 import { keydownHandler, keyupHandler } from "./events.js";
+import Timer from "./Timer.js";
 
 function initHTMLelements(){
     //Canvas
@@ -58,10 +59,15 @@ function initplayer() {
    globals.characters.push(player);
   
 }
+function initKeyTimer(){
+    globals.keyTime = new Timer(0.2, 0.2)
+
+
+}
 export function initEvents(){
 
     //Add the keyboard event listeners
     window.addEventListener("keydown", keydownHandler, false);
     window.addEventListener("keyup", keyupHandler, false);
 }
-export{initHTMLelements,initVars,initLevel,initplayer}
+export{initHTMLelements,initVars,initLevel,initplayer,initKeyTimer}
